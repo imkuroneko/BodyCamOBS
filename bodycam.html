@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { margin: 0; font-family: 'consolas', monospace; font-size: 15px; }
+        .card { background-color: rgba(0, 0, 0, 0.8);  margin: 0px auto;  overflow: hidden;  color: #afafaf; padding: 10px; position: fixed; top: 20px; right: 20px; vertical-align: middle; border-radius: 5px; }
+        img { width: 64px; float: right; margin-top: 5px; margin-left: 10px; }
+        svg { width: 15px; height: 15px; color: #a72a2a; fill: #a72a2a; }
+        span.cnt { float: left; }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            js.init();
+        });
+        var js = {
+            rango: 'Developer',
+            nombre: 'Camila Gomez',
+            entidad: 'Unicodesoft',
+            cod: '377052236909379585',
+
+            init: function() {
+                document.getElementById('rango').innerHTML = js.rango;
+                document.getElementById('nombre').innerHTML = js.nombre;
+                document.getElementById('entidad').innerHTML = js.entidad;
+                document.getElementById('cod').innerHTML = (js.cod.length > 0) ? `[${js.cod}]` : '';
+
+                setInterval(function() {
+                    document.getElementById('date').innerHTML = js.gd();
+                }, 1000);
+            },
+
+            gd: function() {
+                var date = new Date().toString().split(' (');
+                return date[0];
+            },
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <span class="cnt">
+            <b>REC</b> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg> XIAOMI CAM™ <br>
+            <span id="rango"></span> • <span id="nombre"></span> <span id="cod"></span> <br>
+            <span id="entidad"></span>
+            <div id="date"></div>
+        </span>
+        <img src="https://whitelistme.app/favicon.png" alt="">
+    </div>
+</body>
+</html>
